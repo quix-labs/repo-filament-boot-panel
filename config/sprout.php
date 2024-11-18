@@ -60,12 +60,12 @@ return [
         // This will override the cache by introducing a 'sprout' driver
         // that adds a prefix to cache stores for the current tenant.
         \Sprout\Overrides\CacheOverride::class,
-        // This is a simple override that removes all currently resolved
-        // guards to prevent user auth leaking.
-        \Sprout\Overrides\AuthOverride::class,
         // This will override the cookie settings so that all created cookies
         // are specific to the tenant.
         \Sprout\Overrides\CookieOverride::class,
+        // This is a simple override that removes all currently resolved
+        // guards to prevent user auth leaking.
+        \Sprout\Overrides\AuthOverride::class,
         // This will override the session by introducing a 'sprout' driver
         // that wraps any other session store.
         \Sprout\Overrides\SessionOverride::class,

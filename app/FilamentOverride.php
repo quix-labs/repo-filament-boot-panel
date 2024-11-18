@@ -42,8 +42,6 @@ class FilamentOverride implements ServiceOverride, DeferrableServiceOverride
         if ($panel !== null) {
             $this->panel($panel, $tenant);
         }
-
-        dd(session());
     }
 
     public function cleanup(Tenancy $tenancy, Tenant $tenant): void
