@@ -20,8 +20,8 @@ return new class extends Migration {
 
 
         DB::table('tenants')->insert([
-            ['id' => 'tenant-1', 'path' => '/panel-1', 'color' => '#f97316'],
-            ['id' => 'tenant-2', 'path' => '/panel-2', 'color' => '#059669'],
+            ['id' => 'tenant-1', 'path' => 'panel-1', 'color' => '#f97316'],
+            ['id' => 'tenant-2', 'path' => 'panel-2', 'color' => '#059669'],
         ]);
     }
 
