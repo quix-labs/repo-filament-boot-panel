@@ -71,6 +71,7 @@ return [
         \Sprout\Overrides\SessionOverride::class,
         \App\LivewireOverride::class,
         \App\FilamentOverride::class,
+        \App\OctaneOverride::class,
     ],
 
 ];

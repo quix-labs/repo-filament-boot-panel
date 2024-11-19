@@ -7,20 +7,21 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use Sprout\Contracts\BootableServiceOverride;
+use Sprout\Contracts\DeferrableServiceOverride;
 use Sprout\Contracts\Tenancy;
 use Sprout\Contracts\Tenant;
 use Sprout\Sprout;
 
-class LivewireOverride implements BootableServiceOverride
+class LivewireOverride implements BootableServiceOverride, DeferrableServiceOverride
 {
     public function boot(Application $app, Sprout $sprout): void
     {
         Livewire::setUpdateRoute(function ($handle) {
             return Route::post('/{tenants_path}/livewire/update', $handle)
-                        ->middleware(
-                            'web',
-                            'sprout.tenanted'
-                        );
+                ->middleware(
+                    'web',
+                    'sprout.tenanted'
+                );
         });
     }
 
@@ -32,5 +33,10 @@ class LivewireOverride implements BootableServiceOverride
     public function cleanup(Tenancy $tenancy, Tenant $tenant): void
     {
         // TODO: Implement cleanup() method.
+    }
+
+    public static function service(): string
+    {
+        return 'livewire';
     }
 }
